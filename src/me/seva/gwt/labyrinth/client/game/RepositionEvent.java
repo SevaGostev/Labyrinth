@@ -33,6 +33,7 @@ public class RepositionEvent implements LoggableEvent
 		if(target.getMaze().isInBounds(startPosition))
 			target.getMaze().getCell(startPosition).remove(target);
 		
+		target.addTrace(startPosition);
 		target.setPosition(endPosition);
 		
 		if(target.getMaze().isInBounds(endPosition))
@@ -45,6 +46,7 @@ public class RepositionEvent implements LoggableEvent
 		if(target.getMaze().isInBounds(endPosition))
 			target.getMaze().getCell(endPosition).remove(target);
 		
+		target.removeLastTrace();
 		target.setPosition(startPosition);
 		
 		if(target.getMaze().isInBounds(startPosition))

@@ -21,6 +21,25 @@ public class EventLogger
 	
 	public void log(LoggableEvent event)
 	{
+		events.subList(pointer, events.size()).clear();
 		events.add(event);
+	}
+	
+	public void undo()
+	{
+		if(pointer > 0)
+		{
+			pointer --;
+			events.get(pointer).doBackward();
+		}
+	}
+	
+	public void redo()
+	{
+		if(pointer < events.size())
+		{
+			events.get(pointer).doForward();
+			pointer ++;
+		}
 	}
 }

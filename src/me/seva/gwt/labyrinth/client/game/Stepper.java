@@ -1,12 +1,32 @@
 package me.seva.gwt.labyrinth.client.game;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Stepper implements MazeObject
 {
 	private final GameController controller;
 	private final Maze maze;
 	
 	private Position position;
+	private final List<Position> trace;
 	
+	private final String name;
+	private final String color;
+	
+	
+	
+	public Stepper(GameController controller, Maze maze, Position position, String name, String color)
+	{
+		this.controller = controller;
+		this.maze = maze;
+		this.position = position;
+		this.trace = new ArrayList<Position>();
+		this.name = name;
+		this.color = color;
+	}
+
 	public boolean step(Direction d)
 	{
 		Edge e = null;
@@ -94,6 +114,31 @@ public class Stepper implements MazeObject
 	public Position getPosition()
 	{
 		return position;
+	}
+	
+	public List<Position> getTraceView()
+	{
+		return Collections.unmodifiableList(trace);
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getColor()
+	{
+		return color;
+	}
+	
+	public boolean addTrace(Position p)
+	{
+		return trace.add(p);
+	}
+	
+	public Position removeLastTrace()
+	{
+		return trace.remove(trace.size() - 1);
 	}
 	
 	public int getX()
