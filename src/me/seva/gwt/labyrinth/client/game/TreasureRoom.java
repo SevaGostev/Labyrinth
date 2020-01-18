@@ -1,7 +1,13 @@
 package me.seva.gwt.labyrinth.client.game;
 
-public class TreasureCell extends DispenserCell
+public class TreasureRoom extends DispenserCell
 {
+	private final Position position;
+	
+	public TreasureRoom(Position position)
+	{
+		this.position = position;
+	}
 
 	@Override
 	public String getStepMessage(Stepper s)

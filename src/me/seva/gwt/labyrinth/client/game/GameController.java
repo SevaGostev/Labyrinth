@@ -33,6 +33,11 @@ public class GameController
 		return logger;
 	}
 	
+	public Options getOptions()
+	{
+		return options;
+	}
+	
 	public Player getCurrentPlayer()
 	{
 		return currentPlayer;
@@ -91,6 +96,23 @@ public class GameController
 			currentPlayer = players.get(currentPlayerNumber);
 			
 			movesLeft = 1;
+		}
+	}
+
+	public static String getDirectionString(Direction d)
+	{
+		switch(d)
+		{
+			case EAST:
+				return "east";
+			case SOUTH:
+				return "south";
+			case WEST:
+				return "west";
+			case NORTH:
+				return "north";
+			default:
+				return "";
 		}
 	}
 }

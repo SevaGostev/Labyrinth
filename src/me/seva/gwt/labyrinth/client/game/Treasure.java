@@ -8,5 +8,11 @@ public class Treasure implements InventoryItem
 	{
 		return "treasure";
 	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return (obj instanceof Treasure);
+	}
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class Cell
 {
-	private List<MazeObject> mazeObjects = new ArrayList<MazeObject>();
+	private final List<MazeObject> mazeObjects = new ArrayList<MazeObject>();
 	
 	public List<MazeObject> getListView()
 	{
